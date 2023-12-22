@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use App\Models\Customer;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
-use App\Htpp\Controllers\Controller;
+use App\Http\Controllers\Controller;
 class CustomerController extends Controller
 {
     /**

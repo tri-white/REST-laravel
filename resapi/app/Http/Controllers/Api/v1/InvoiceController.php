@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use App\Models\Invoice;
 use App\Http\Requests\StoreInvoiceRequest;
 use App\Http\Requests\UpdateInvoiceRequest;
-use App\Htpp\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 class InvoiceController extends Controller
 {
