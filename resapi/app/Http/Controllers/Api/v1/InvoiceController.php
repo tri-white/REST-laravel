@@ -21,12 +21,8 @@ class InvoiceController extends Controller
         $filter = new InvoicesFilter();
         $queryItems = $filter->transform($request); // ['column', 'operator', 'value']
 
-        if(count($queryItems) == 0){
-            return new InvoiceCollection(Invoice::paginate());
-        }else{
-            $invoices = Invoice::where($queryItems)->paginate();
-            return new InvoiceCollection($invoices->appends($request->query()));
-        }
+        $invoices = Invoice::where($queryItems)->paginate();
+        return new InvoiceCollection($invoices->appends($request->query()));
     }
 
     /**
