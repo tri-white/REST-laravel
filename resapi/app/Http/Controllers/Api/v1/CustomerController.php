@@ -69,6 +69,7 @@ class CustomerController extends Controller
      */
     public function destroy(DeleteCustomerRequest $request, Customer $customer)
     {
+        $customer->invoices()->delete();
         $customer->delete();
 
         return response()->json(['message' => 'Customer deleted successfully']);
