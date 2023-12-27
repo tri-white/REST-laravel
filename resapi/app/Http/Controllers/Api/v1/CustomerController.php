@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use App\Models\Customer;
 use App\Http\Requests\v1\StoreCustomerRequest;
 use App\Http\Requests\v1\UpdateCustomerRequest;
+use App\Http\Requests\v1\DeleteCustomerRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\v1\CustomerResource;
 use App\Http\Resources\v1\CustomerCollection;
@@ -66,8 +67,10 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Customer $customer)
+    public function destroy(DeleteCustomerRequest $request, Customer $customer)
     {
-        
+        $customer->delete();
+
+        return response()->json(['message' => 'Customer deleted successfully']);
     }
 }
