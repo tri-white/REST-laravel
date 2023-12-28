@@ -27,12 +27,12 @@ Route::group([
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+    Route::get('user', 'AuthController@me');
 
 });
 
 // We will have links like: '/api/v1/...'
-Route::group(['prefix' => 'v1', 'namespace' =>'App\Http\Controllers\Api\v1', 'middleware'=>'auth:sanctum'], function() {
+Route::group(['prefix' => 'v1', 'namespace' =>'App\Http\Controllers\Api\v1', 'middleware'=>'auth:api'], function() {
     Route::apiResource('customers', CustomerController::class);
     Route::apiResource('invoices', InvoiceController::class);
 

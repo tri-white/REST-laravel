@@ -9,10 +9,11 @@ class UpdateCustomerRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        $user = $this->user();
-
-        return $user != null && $user->tokenCan('update');
+        $abilities = auth()->payload()->get('abilities');
+    
+        return is_array($abilities) && in_array('update', $abilities);
     }
+    
 
     /**
      * Get the validation rules that apply to the request.
