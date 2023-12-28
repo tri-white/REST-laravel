@@ -18,6 +18,9 @@ class Customer extends Model
         'state',
         'postal_code'
     ];
+    
+
+
     public function invoices(){
         return $this->hasMany(Invoice::class);
     }
